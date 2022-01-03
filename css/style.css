@@ -1,0 +1,527 @@
+:root {
+  --ecru-white: #f7f6e7;
+  --white: #ffffff;
+  --dodger-blue: #2196F3;
+  --spectra: #314e52;
+  --gallery: #eeeeee;
+  --black: #000000;
+  --silver-chalice: #aaaaaa;
+  --error-red: #ff0000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  background-color: var(--spectra);
+  color: var(--spectra);
+}
+
+.title {
+  padding: 20px;
+}
+
+.title h1 {
+  text-align: center;
+  font-size: 55px;
+  font-weight: bolder;
+  color: var(--ecru-white);
+}
+
+.section-survey {
+  margin: 10px 10px;
+  padding: 20px 10px;
+  background-color: var(--ecru-white);
+  border-radius: 20px;
+}
+
+.section-survey .form-container {
+  /*rating starts*/
+  /*rating ends*/
+  /*radio/checkbox starts*/
+  /* Hide the browser's default radio/checkbox button */
+  /* Create a custom radio button/checkbox */
+  /* On mouse-over, add a grey background color */
+  /* When the radio/checkbox button is checked, add a blue background */
+  /* Create the indicator (the circle/tick - hidden when not checked) */
+  /* Show the indicator (circle/tick) when checked */
+  /* Style the indicator (circle) */
+  /* Style the indicator (tick) */
+  /*radio/checkbox ends*/
+  /*input starts*/
+  /* This is the style of our error messages */
+  /*input ends*/
+  /*select starts*/
+  /*select ends*/
+  /*submit_btn starts*/
+  /*submit_btn ends*/
+}
+
+.section-survey .form-container div.form-group {
+  margin: 50px 0;
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.section-survey .form-container .rating .rating-grid {
+  display: grid;
+  grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+  margin-top: -30px;
+  margin-bottom: 60px;
+}
+
+.section-survey .form-container .rating .rating-grid .rating-container {
+  margin: 50px 3px;
+  font-size: 20px;
+  display: inline-block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.section-survey .form-container .rating .rating-grid .rating-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.section-survey .form-container .rating .rating-grid .rating-container .ratingmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 30px;
+  padding: 10px 7px 7px 7px;
+  color: var(--spectra);
+  font-weight: 600;
+  background-color: var(--ecru-white);
+  text-align: center;
+  border-radius: 4px;
+  border: 3px solid var(--spectra);
+}
+
+.section-survey .form-container .rating .rating-grid .rating-container:hover input ~ .ratingmark {
+  color: var(--ecru-white);
+  background-color: var(--spectra);
+  transition: 0.3s;
+}
+
+.section-survey .form-container .rating .rating-grid .rating-container input:checked ~ .ratingmark {
+  background-color: var(--spectra);
+  color: var(--ecru-white);
+}
+
+.section-survey .form-container .radio-container,
+.section-survey .form-container .checkbox-container {
+  display: inline-block;
+  position: relative;
+  padding-left: 35px;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.section-survey .form-container .radio-container input,
+.section-survey .form-container .checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.section-survey .form-container .checkmark,
+.section-survey .form-container .radiomark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  background-color: var(--ecru-white);
+  border: 3px solid var(--spectra);
+}
+
+.section-survey .form-container .radiomark {
+  border-radius: 50%;
+}
+
+.section-survey .form-container .checkbox-container:hover input ~ .checkmark,
+.section-survey .form-container .radio-container:hover input ~ .radiomark {
+  background-color: var(--spectra);
+  transition: .3s;
+}
+
+.section-survey .form-container .checkbox-container input:checked ~ .checkmark,
+.section-survey .form-container .radio-container input:checked ~ .radiomark {
+  background-color: var(--spectra);
+  color: var(--ecru-white);
+}
+
+.section-survey .form-container .checkmark:after,
+.section-survey .form-container .radiomark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.section-survey .form-container .checkbox-container input:checked ~ .checkmark:after,
+.section-survey .form-container .radio-container input:checked ~ .radiomark:after {
+  display: block;
+}
+
+.section-survey .form-container .radiomark:after {
+  top: 5px;
+  left: 5px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--white);
+}
+
+.section-survey .form-container .checkmark:after {
+  left: 6px;
+  top: 0px;
+  width: 7px;
+  height: 15px;
+  border: solid var(--white);
+  border-width: 0 5px 5px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.section-survey .form-container .usage label,
+.section-survey .form-container .goals label,
+.section-survey .form-container .improvements label {
+  font-size: 22px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.section-survey .form-container .input-name label,
+.section-survey .form-container .input-email label,
+.section-survey .form-container .select-country label,
+.section-survey .form-container .select-role label,
+.section-survey .form-container .input-comments label,
+.section-survey .form-container p {
+  font-size: 25px;
+  font-weight: bold;
+  cursor: default;
+}
+
+.section-survey .form-container input[type=text],
+.section-survey .form-container input[type=email],
+.section-survey .form-container textarea {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-bottom: 3px solid var(--spectra);
+  margin: 30px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 20px;
+  line-height: 20px;
+  text-decoration: none;
+  background-color: transparent;
+  outline: none;
+  font-family: "Nunito", sans-serif;
+  color: var(--spectra);
+}
+
+.section-survey .form-container ::placeholder {
+  color: var(--spectra);
+}
+
+.section-survey .form-container .err_placeholder::placeholder {
+  color: #FF0000;
+}
+
+.section-survey .form-container .error {
+  color: #FF0000;
+  display: block;
+  height: 20px;
+}
+
+.section-survey .form-container select {
+  /* styling */
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid var(--spectra);
+  width: 100%;
+  display: inline-block;
+  font: inherit;
+  font-size: 20px;
+  line-height: 20px;
+  padding: 12px;
+  margin: 30px 0;
+  outline: none;
+  color: var(--spectra);
+  cursor: pointer;
+  opacity: 0.85;
+  font-family: "Nunito", sans-serif;
+  /* reset */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("../assets/svg/angle-down-solid.svg");
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-size: 25px 25px;
+}
+
+.section-survey .form-container option {
+  color: var(--black);
+}
+
+.section-survey .form-container .sendbtn {
+  text-align: right;
+}
+
+.section-survey .form-container .sendbtn input[type=submit] {
+  padding: 10px;
+  border: 3px solid var(--spectra);
+  cursor: pointer;
+  background-color: transparent;
+  transition: 0.5s;
+  font-size: 25px;
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  text-transform: uppercase;
+  outline: none;
+  color: var(--spectra);
+  font-weight: bold;
+  font-family: "Nunito", sans-serif;
+  letter-spacing: 3px;
+  animation: btn_rotate 5s linear infinite;
+}
+
+.section-survey .form-container .sendbtn input[type=submit]:hover {
+  background-color: var(--spectra);
+  color: var(--ecru-white);
+  font-weight: bold;
+}
+
+@keyframes btn_rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+  .title {
+    padding: 0;
+  }
+  .title h1 {
+    font-size: 40px;
+  }
+  .section-survey {
+    margin: 50px 30px;
+    padding: 20px 10px;
+  }
+  .section-survey .form-container .rating .rating-grid .rating-container {
+    margin: 50px 5px;
+    font-size: 22px;
+  }
+  .section-survey .form-container .rating .rating-grid .rating-container .ratingmark {
+    height: 65px;
+    width: 45px;
+    padding: 17px 7px 7px 7px;
+  }
+  .section-survey .form-container .usage label,
+  .section-survey .form-container .goals label,
+  .section-survey .form-container .improvements label {
+    font-size: 22px;
+  }
+  .section-survey .form-container .input-name label,
+  .section-survey .form-container .input-email label,
+  .section-survey .form-container .input-country label,
+  .section-survey .form-container .input-status label,
+  .section-survey .form-container .input-comment label,
+  .section-survey .form-container p {
+    font-size: 30px;
+    font-weight: bold;
+    cursor: default;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .title {
+    padding: 0;
+  }
+  .title h1 {
+    font-size: 50px;
+  }
+  .section-survey {
+    margin: 50px 50px;
+    padding: 20px 50px;
+  }
+  .section-survey .form-container .rating .rating-grid .rating-container {
+    margin: 50px 18px;
+    font-size: 22px;
+  }
+  .section-survey .form-container .rating .rating-grid .rating-container .ratingmark {
+    height: 70px;
+    width: 50px;
+    padding: 20px 10px 10px 10px;
+  }
+  .section-survey .form-container .usage label,
+  .section-survey .form-container .goals label,
+  .section-survey .form-container .improvements label {
+    font-size: 22px;
+  }
+  .section-survey .form-container .input-name label,
+  .section-survey .form-container .input-email label,
+  .section-survey .form-container .input-country label,
+  .section-survey .form-container .input-status label,
+  .section-survey .form-container .input-comments label,
+  .section-survey .form-container p {
+    font-size: 30px;
+    font-weight: bold;
+    cursor: default;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .title {
+    padding: 0;
+  }
+  .title h1 {
+    font-size: 70px;
+    font-weight: bolder;
+  }
+  .section-survey {
+    margin: 50px 100px;
+    padding: 20px 100px;
+  }
+  .section-survey .form-container .rating .rating-grid {
+    margin-top: -30px;
+    margin-bottom: 90px;
+  }
+  .section-survey .form-container .rating .rating-grid .rating-container {
+    margin: 50px 18px;
+    font-size: 22px;
+  }
+  .section-survey .form-container .rating .rating-grid .rating-container .ratingmark {
+    height: 70px;
+    width: 50px;
+    padding: 20px 10px 10px 10px;
+  }
+  .section-survey .form-container .usage label,
+  .section-survey .form-container .goals label,
+  .section-survey .form-container .improvements label {
+    font-size: 22px;
+  }
+  .section-survey .form-container .input-name label,
+  .section-survey .form-container .input-email label,
+  .section-survey .form-container .input-country label,
+  .section-survey .form-container .input-status label,
+  .section-survey .form-container .input-comments label,
+  .section-survey .form-container p {
+    font-size: 30px;
+    font-weight: bold;
+    cursor: default;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1439px) {
+  .title {
+    padding: 0;
+  }
+  .title h1 {
+    font-size: 70px;
+    font-weight: bolder;
+  }
+  .section-survey {
+    margin: 50px 200px;
+    padding: 20px 100px;
+  }
+  .section-survey .form-container .rating .rating-grid {
+    margin-top: -30px;
+    margin-bottom: 90px;
+  }
+  .section-survey .form-container .rating .rating-grid .rating-container {
+    margin: 50px 18px;
+    font-size: 22px;
+  }
+  .section-survey .form-container .rating .rating-grid .rating-container .ratingmark {
+    height: 70px;
+    width: 50px;
+    padding: 20px 10px 10px 10px;
+  }
+  .section-survey .form-container .usage label,
+  .section-survey .form-container .goals label,
+  .section-survey .form-container .improvements label {
+    font-size: 22px;
+  }
+  .section-survey .form-container .input-name label,
+  .section-survey .form-container .input-email label,
+  .section-survey .form-container .input-country label,
+  .section-survey .form-container .input-status label,
+  .section-survey .form-container .input-comments label,
+  .section-survey .form-container p {
+    font-size: 30px;
+    font-weight: bold;
+    cursor: default;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .title {
+    padding: 0;
+  }
+  .title h1 {
+    font-size: 70px;
+    font-weight: bolder;
+  }
+  .section-survey {
+    margin: 50px 300px;
+    padding: 20px 50px;
+  }
+  .section-survey .form-container .rating .rating-grid {
+    margin-top: -30px;
+    margin-bottom: 90px;
+  }
+  .section-survey .form-container .rating .rating-grid .rating-container {
+    margin: 50px 18px;
+    font-size: 22px;
+  }
+  .section-survey .form-container .rating .rating-grid .rating-container .ratingmark {
+    height: 70px;
+    width: 50px;
+    padding: 20px 10px 10px 10px;
+  }
+  .section-survey .form-container .usage label,
+  .section-survey .form-container .goals label,
+  .section-survey .form-container .improvements label {
+    font-size: 22px;
+  }
+  .section-survey .form-container .input-name label,
+  .section-survey .form-container .input-email label,
+  .section-survey .form-container .input-country label,
+  .section-survey .form-container .input-status label,
+  .section-survey .form-container .input-comments label,
+  .section-survey .form-container p {
+    font-size: 30px;
+    font-weight: bold;
+    cursor: default;
+  }
+}

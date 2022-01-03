@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Detailed custom validation</title>
+    <style>
+        body {
+            font: 1em sans-serif;
+            width: 1000px;
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        /* This is the style of our error messages */
+        .error {
+            color: #FF0000;
+            display: block;
+            height: 20px;
+        }
+
+        input[type=text],
+        input[type=email] {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-bottom: 3px solid black;
+            margin: 30px 0;
+            opacity: 0.85;
+            display: inline-block;
+            font-size: 20px;
+            line-height: 20px;
+            text-decoration: none;
+            background-color: transparent;
+            outline: none;
+        }
+
+        .err_placeholder::placeholder {
+            color: #FF0000;
+        }
+    </style>
+</head>
+
+<body>
+    <form novalidate autocomplete="off">
+        <p>
+            <label for="mail">
+                <h1>Please enter an email address:</h1>
+                <input type="text" id="name" name="name" required placeholder="Enter Name">
+                <span class="error" id="nameError" aria-live="polite"></span>
+                <input type="email" id="mail" name="mail" required minlength="8" placeholder="Enter Email address">
+                <span class="error" id="emailError" aria-live="polite"></span>
+            </label>
+        </p>
+        <button>Submit</button>
+    </form>
+
+    <script>
+        // There are many ways to pick a DOM node; here we get the form itself and the name and email
+        // input box, as well as the span element into which we will place the error message.
+        const form = document.getElementsByTagName('form')[0];
+        const name = document.getElementById('name');
+        const nameError = document.getElementById('nameError');
+        const email = document.getElementById('mail');
+        const emailError = document.getElementById('emailError');
+
+        //NAME VALIDATION STARTS
+        // Each time the user types something, we check if the
+        // form fields are valid.
+        name.addEventListener('input', function (event) {
+            shownameError();
+        });
+
+        //check name validation when focusout
+        name.addEventListener('focusout', (event) => {
+            shownameError();
+        });
+
+        //function for check all errors
+        function shownameError() {
+            const nameRegEx = /^[a-z ,.'-]+$/i;
+            const nameValue = document.getElementById('name').value;
+            if (nameValue == '' || nameValue == null) {
+                // If the field is empty
+                // display the following error message.
+                //name.placeholder = "You need to enter an name";
+                nameError.textContent = 'You need to enter a Name.';
+                //change placeholder color
+                name.classList.add("err_placeholder");
+                //change input borderBottom color
+                name.style.borderBottomColor = "#FF0000";
+                // return true to do not submit the form (for refernce check form addeventlistner at the end)
+                return true;
+            } else if (!nameRegEx.test(nameValue)) {
+                // If typemismatch
+                //display the following error message
+                nameError.textContent = 'Enter Valid Name.';
+                //change input borderBottom color
+                name.style.borderBottomColor = "#FF0000";
+                // return true to do not submit the form (for refernce check form addeventlistner at the end)
+                return true;
+            } else {
+                //if everything correct
+                // change borderBottom color to normal
+                name.style.borderBottomColor = "#314e52";
+                // Reset the content of the message
+                nameError.textContent = '';
+                // return false to submit the form (for refernce check form addeventlistner at the end)
+                return false;
+            }
+
+        }
+
+
+        //EMAIL VALIDATION STARTS
+        email.addEventListener('input', function (event) {
+            // Each time the user types something, we check if the
+            // form fields are valid.
+
+            //email
+            if (email.validity.valid) {
+                // In case there is an error message visible, if the field
+                // is valid, we remove the error message.
+                email.style.borderBottomColor = "#314e52";
+                emailError.textContent = ''; // Reset the content of the message
+            } else {
+                // If there is still an error, show the correct error
+                showemailError();
+            }
+        });
+
+        email.addEventListener('focusout', (event) => {
+            showemailError();
+        });
+
+        function showemailError() {
+            if (email.validity.valueMissing) {
+                // If the field is empty
+                // display the following error message.
+                //email.placeholder = "You need to enter an e-mail address";
+                emailError.textContent = 'You need to enter an e-mail address.';
+                email.classList.add("err_placeholder");
+                email.style.borderBottomColor = "#FF0000";
+            } else if (email.validity.typeMismatch) {
+                // If the field doesn't contain an email address
+                // display the following error message.
+                email.style.borderBottomColor = "#FF0000";
+                emailError.textContent = 'Entered value needs to be an e-mail address.';
+            } else if (email.validity.tooShort) {
+                // If the data is too short
+                // display the following error message.
+                email.style.borderBottomColor = "#FF0000";
+                emailError.textContent = `Email should be at least ${email.minLength} characters; you entered ${email.value.length}.`;
+            }
+        }
+
+        
+        // check if the form contains valid data when submit
+        form.addEventListener('submit', function (event) {
+            
+            //If shownameError() checks true then display an appropriate error message
+            if (shownameError()) {
+                //Then we prevent the form from being sent by canceling the event
+                event.preventDefault();
+            }
+
+
+            if (!email.validity.valid) {
+                // If it isn't, we display an appropriate error message
+                showemailError();
+                // Then we prevent the form from being sent by canceling the event
+                event.preventDefault();
+            }
+        });
+
+        /*
+            THE STATEMENT
+                WHEN SUBMITTING THE FORM IT HAS TO CHECK THAT EVERY INPUT IS CONTAIN VALID VALUE
+            
+            THE PROBLEM
+                FORM SUBMITS EVEN WHEN INPUT NAME VALUE IS INVALID
+            THE REASON
+                IN THE ABOVE FORM ADDEVENTLISTNER FUNCTION THE "if(shownameError())" IS NOT WORKING 
+                IN THIS IT CHECKS FIRST FOR NAME ERROR THEN EMAIL ERROR
+                EMAIL ERROR WORKS FINE BUT IN NAME ERROR IT DOES NOT SEEM TO WORK
+                NAME INPUT IS INVALID IT STILL SUBMIT THE FORM 
+            THE SOLUTION
+                SOLUTION IS SIMPLE REMOVE "checkName()" AND CREATE ELSEIF CONDITION FOR REGEX IN THE DEFAULT "shownameError()" FUNCTION
+                FOR BETTER UNDERSTANDING CHECK "shownameError()" FUNCTION 
+                
+        */
+            
+    </script>
+</body>
+
+</html>

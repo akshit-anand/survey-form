@@ -1,0 +1,200 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #314e52;
+}
+
+.title {
+  background-color: #fff;
+  color: black;
+  padding: 20px;
+}
+
+.title h1 {
+  text-align: center;
+  font-size: 50px;
+}
+
+.section-survey {
+  margin: 10px 300px;
+  border-radius: 20px;
+  color: #FFF;
+}
+
+.section-survey .form-container {
+  border-radius: 5px;
+  padding: 20px;
+  /* Customize the label (the container) */
+  /* Hide the browser's default radio button */
+  /* Create a custom radio button */
+  /* On mouse-over, add a grey background color */
+  /* When the radio button is checked, add a blue background */
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  /* Show the indicator (dot/circle) when checked */
+  /* Style the indicator (dot/circle) */
+  /* Style the checkmark/indicator */
+}
+
+.section-survey .form-container div.form-group {
+  margin: 50px 0;
+}
+
+.section-survey .form-container .radio-container,
+.section-survey .form-container .checkbox-container {
+  display: inline-block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.section-survey .form-container .radio-container input,
+.section-survey .form-container .checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.section-survey .form-container .checkmark,
+.section-survey .form-container .radiomark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+.section-survey .form-container .radiomark {
+  border-radius: 50%;
+}
+
+.section-survey .form-container .checkbox-container:hover input ~ .checkmark,
+.section-survey .form-container .radio-container:hover input ~ .radiomark {
+  background-color: #ccc;
+}
+
+.section-survey .form-container .checkbox-container input:checked ~ .checkmark,
+.section-survey .form-container .radio-container input:checked ~ .radiomark {
+  background-color: #2196F3;
+}
+
+.section-survey .form-container .checkmark:after,
+.section-survey .form-container .radiomark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.section-survey .form-container .checkbox-container input:checked ~ .checkmark:after,
+.section-survey .form-container .radio-container input:checked ~ .radiomark:after {
+  display: block;
+}
+
+.section-survey .form-container .radiomark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+.section-survey .form-container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.section-survey .form-container label,
+.section-survey .form-container p {
+  font-size: 22px;
+  cursor: default;
+}
+
+.section-survey .form-container .radio label,
+.section-survey .form-container .checkbox label {
+  font-size: 20px;
+  color: #e7e6e1;
+  cursor: pointer;
+}
+
+.section-survey .form-container input[type=text],
+.section-survey .form-container select,
+.section-survey .form-container textarea {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-bottom: 3px solid #aaa;
+  margin: 30px 0;
+  opacity: 0.85;
+  display: inline-block;
+  font-size: 20px;
+  line-height: 20px;
+  text-decoration: none;
+  background-color: transparent;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+}
+
+.section-survey .form-container ::placeholder {
+  color: #aaa;
+}
+
+.section-survey .form-container select {
+  color: #aaa;
+}
+
+.section-survey .form-container option {
+  color: black;
+}
+
+.section-survey .form-container input[type=radio],
+.section-survey .form-container input[type=checkbox] {
+  margin: 10px;
+  cursor: pointer;
+}
+
+.section-survey .form-container .sendbtn {
+  text-align: right;
+}
+
+.section-survey .form-container .sendbtn input[type=submit] {
+  padding: 10px;
+  border: 3px solid #fff;
+  cursor: pointer;
+  background-color: transparent;
+  transition: 0.5s;
+  font-size: 20px;
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  text-transform: uppercase;
+  outline: none;
+  font-weight: bold;
+  color: #FFF;
+}
+
+.section-survey .form-container .sendbtn input[type=submit]:hover {
+  background-color: #fff;
+  color: #314e52;
+}

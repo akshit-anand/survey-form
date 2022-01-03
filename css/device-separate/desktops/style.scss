@@ -1,0 +1,202 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background-color: #314e52;
+}
+
+.title {
+    background-color: #fff;
+    color: black;
+    padding: 20px;
+
+    h1 {
+        text-align: center;
+        font-size: 50px;
+    }
+}
+
+.section-survey {
+    //border: 1px solid black;
+    margin: 10px 300px;
+    //background-color: #EEE;
+    border-radius: 20px;
+    color: #FFF;
+
+    .form-container {
+        border-radius: 5px;
+        padding: 20px;
+
+        div.form-group {
+            margin: 50px 0;
+        }
+
+        /* Customize the label (the container) */
+        .radio-container,
+        .checkbox-container {
+            display: inline-block;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 22px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* Hide the browser's default radio button */
+        .radio-container input,
+        .checkbox-container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        /* Create a custom radio button */
+        .checkmark,
+        .radiomark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: #eee;
+        }
+
+        .radiomark {
+            border-radius: 50%;
+        }
+
+        /* On mouse-over, add a grey background color */
+        .checkbox-container:hover input~.checkmark,
+        .radio-container:hover input~.radiomark {
+            background-color: #ccc;
+        }
+
+        /* When the radio button is checked, add a blue background */
+        .checkbox-container input:checked~.checkmark,
+        .radio-container input:checked~.radiomark {
+            background-color: #2196F3;
+        }
+
+        /* Create the indicator (the dot/circle - hidden when not checked) */
+        .checkmark:after,
+        .radiomark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        /* Show the indicator (dot/circle) when checked */
+        .checkbox-container input:checked~.checkmark:after,
+        .radio-container input:checked~.radiomark:after {
+            display: block;
+        }
+
+        /* Style the indicator (dot/circle) */
+        .radiomark:after {
+            top: 9px;
+            left: 9px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: white;
+        }
+
+        /* Style the checkmark/indicator */
+        .checkmark:after {
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        label,
+        p {
+            font-size: 22px;
+            cursor: default;
+        }
+
+        .radio label,
+        .checkbox label {
+            font-size: 20px;
+            color: #e7e6e1;
+            cursor: pointer;
+        }
+
+        input[type=text],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-bottom: 3px solid #aaa;
+            margin: 30px 0;
+            opacity: 0.85;
+            display: inline-block;
+            font-size: 20px;
+            line-height: 20px;
+            text-decoration: none;
+            background-color: transparent;
+            outline: none;
+            font-family: "Poppins", sans-serif;
+        }
+
+        ::placeholder {
+            color: #aaa;
+        }
+
+        select {
+            color: #aaa
+        }
+
+        option {
+            color: black;
+        }
+
+        input[type=radio],
+        input[type=checkbox] {
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .sendbtn {
+            text-align: right;
+
+            input[type=submit] {
+                padding: 10px;
+                border: 3px solid #fff;
+                cursor: pointer;
+                background-color: transparent;
+                transition: 0.5s;
+                font-size: 20px;
+                border-radius: 50%;
+                height: 150px;
+                width: 150px;
+                text-transform: uppercase;
+                outline: none;
+                font-weight: bold;
+                color: #FFF;
+            }
+
+            input[type=submit]:hover {
+                background-color: #fff;
+                color: #314e52;
+            }
+        }
+    }
+}

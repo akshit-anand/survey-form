@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: table;
+            margin: 200px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p>Full Name: <input id="name" value=""></p>
+        <span style="display:block;border:1px solid black;height: 20px;color:red" id="err"></span>
+        <input type="button" id="btn" value="Validate Name">
+    </div>
+    <script>
+        const btn = document.getElementById('btn');
+        const name = document.getElementById('name');
+        const err = document.getElementById('err');
+
+
+        //working(when click)
+        /*btn.onclick = function () {
+            var regName = /^[a-z ,.'-]+$/i;
+            var name = document.getElementById('name').value;
+            if (!regName.test(name)) {
+                //alert('Invalid name given.');
+                //document.getElementById('name').focus();
+                err.textContent = 'Invalid name given.';
+                return false;
+            } else {
+                //alert('Valid name given.');
+                err.textContent = 'Valid name given.';
+                return true;
+            }
+        }*/
+
+        //working(when start typing)
+        /*name.addEventListener('input', function (event) {
+            var regName = /^[a-z ,.'-]+$/i;
+            var name = document.getElementById('name').value;
+            if (!regName.test(name)) {
+                err.textContent = 'Invalid name given.';
+                return false;
+            } else {
+                err.textContent = 'Valid name given.';
+                return true;
+            }
+        });*/
+
+        //working(when focusout)
+        name.addEventListener('focusout', (event) => {
+            const regName = /^[a-z ,.'-]+$/i;
+            const nameValue = document.getElementById('name').value;
+            if (!regName.test(nameValue)) {
+                err.textContent = 'Invalid name given.';
+                return false;
+            } else {
+                err.textContent = 'Valid name given.';
+                return true;
+            }
+        });
+
+        /* 
+            WHY THE ABOVE CODE WORKING AND BELOW NOT WORKING
+            THE PROBLEM
+                WHEN CHECKING INPUT NAME VALIDATION IT RETURN FALSE
+            THE SOLUTION
+                BECAUSE "regName" VARIABLE WHICH CONTAINS PATTERN FOR INPUT ELEMENT NAME IS DECLARING OUTSIDE THE FUNCTION, IT HAS TO BE DECLARE INSIDE THE FUNCTION OR EVENTLISTNER FUNCTION, TO BE ABLE TO WORK.
+            FOR BETTER UNDERSTANDING CHECK ABOVE AND BELOW CODE SNIPPETS
+            IN ABOVE "regName" VARIABLE DECLARE INSIDE THE FUNCTION
+            IN BELOW "regName" VARAIBLE DOES NOT DECLARE INSIDE THE FUNCTION I AM DECLARING IT GLOBALLY BUT ITS NOT WORKING
+        
+        */
+
+        //not working(when click w/addeventlistner)
+        /*btn.addEventListener('click', function () {
+            if (!regName.test(name)) {
+                //err.textContent = 'Invalid name given.';
+                alert('Invalid name given.');
+                return false;
+            } else {
+                //err.textContent = 'Valid name given.';
+                alert('Valid name given.');
+                return true;
+            }
+        });*/
+
+        //not working(when using oninput)
+        /*name.oninput = function () {
+            if (regName.test(nameValue)) {
+                err.textContent = 'Invalid name given.';
+                return false;
+            } else {
+                err.textContent = 'Valid name given.';
+                return true;
+            }
+        }*/
+    </script>
+</body>
+
+</html>

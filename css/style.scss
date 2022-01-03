@@ -1,0 +1,607 @@
+:root {
+    --ecru-white: #f7f6e7;
+    --white: #ffffff;
+    --dodger-blue: #2196F3;
+    --spectra: #314e52;
+    --gallery: #eeeeee;
+    --black: #000000;
+    --silver-chalice: #aaaaaa;
+    --error-red: #ff0000;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Nunito", sans-serif;
+    //background: linear-gradient(#ffc1b6, #ffdcb8, #ffeebb, #fdffbc);
+    background-color: var(--spectra);
+    color: var(--spectra);
+}
+
+.title {
+    padding: 20px;
+
+    h1 {
+        text-align: center;
+        font-size: 55px;
+        font-weight: bolder;
+        color: var(--ecru-white);
+    }
+}
+
+.section-survey {
+    margin: 10px 10px;
+    padding: 20px 10px;
+    background-color: var(--ecru-white);
+    border-radius: 20px;
+
+    .form-container {
+        div.form-group {
+            margin: 50px 0;
+            border: 1px solid black;
+            padding: 20px;
+        }
+
+        /*rating starts*/
+        .rating {
+
+            //border: 1px solid white;
+            .rating-grid {
+                display: grid;
+                grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+                margin-top: -30px;
+                margin-bottom: 60px;
+
+                //rating label//
+                .rating-container {
+                    margin: 50px 3px;
+                    font-size: 20px;
+                    display: inline-block;
+                    position: relative;
+                    padding-left: 35px;
+                    cursor: pointer;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+
+                    input {
+                        position: absolute;
+                        opacity: 0;
+                        cursor: pointer;
+                    }
+
+                    .ratingmark {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 50px;
+                        width: 30px;
+                        padding: 10px 7px 7px 7px;
+                        color: var(--spectra);
+                        font-weight: 600;
+                        background-color: var(--ecru-white);
+                        text-align: center;
+                        border-radius: 4px;
+                        border: 3px solid var(--spectra);
+                    }
+                }
+
+                .rating-container:hover input~.ratingmark {
+                    color: var(--ecru-white);
+                    background-color: var(--spectra);
+                    transition: 0.3s;
+                }
+
+                .rating-container input:checked~.ratingmark {
+                    background-color: var(--spectra);
+                    color: var(--ecru-white);
+                }
+            }
+        }
+
+        /*rating ends*/
+
+        /*radio/checkbox starts*/
+        .radio-container,
+        .checkbox-container {
+            display: inline-block;
+            position: relative;
+            padding-left: 35px;
+            font-size: 22px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            margin: 20px;
+            cursor: pointer;
+
+        }
+
+        /* Hide the browser's default radio/checkbox button */
+        .radio-container input,
+        .checkbox-container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        /* Create a custom radio button/checkbox */
+        .checkmark,
+        .radiomark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 30px;
+            width: 30px;
+            background-color: var(--ecru-white);
+            border: 3px solid var(--spectra);
+        }
+
+        .radiomark {
+            border-radius: 50%;
+        }
+
+        /* On mouse-over, add a grey background color */
+        .checkbox-container:hover input~.checkmark,
+        .radio-container:hover input~.radiomark {
+            background-color: var(--spectra);
+            transition: .3s;
+        }
+
+        /* When the radio/checkbox button is checked, add a blue background */
+        .checkbox-container input:checked~.checkmark,
+        .radio-container input:checked~.radiomark {
+            background-color: var(--spectra);
+            color: var(--ecru-white);
+        }
+
+        /* Create the indicator (the circle/tick - hidden when not checked) */
+        .checkmark:after,
+        .radiomark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        /* Show the indicator (circle/tick) when checked */
+        .checkbox-container input:checked~.checkmark:after,
+        .radio-container input:checked~.radiomark:after {
+            display: block;
+        }
+
+        /* Style the indicator (circle) */
+        .radiomark:after {
+            top: 5px;
+            left: 5px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--white);
+        }
+
+        /* Style the indicator (tick) */
+        .checkmark:after {
+            left: 6px;
+            top: 0px;
+            width: 7px;
+            height: 15px;
+            border: solid var(--white);
+            border-width: 0 5px 5px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        .usage label,
+        .goals label,
+        .improvements label {
+            font-size: 22px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /*radio/checkbox ends*/
+
+        /*input starts*/
+        .input-name label,
+        .input-email label,
+        .select-country label,
+        .select-role label,
+        .input-comments label,
+        p {
+            font-size: 25px;
+            font-weight: bold;
+            cursor: default;
+        }
+
+        input[type=text],
+        input[type=email],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-bottom: 3px solid var(--spectra);
+            margin: 30px 0;
+            opacity: 0.85;
+            display: inline-block;
+            font-size: 20px;
+            line-height: 20px;
+            text-decoration: none;
+            background-color: transparent;
+            outline: none;
+            font-family: "Nunito", sans-serif;
+            color: var(--spectra);
+        }
+
+        ::placeholder {
+            color: var(--spectra);
+        }
+
+        .err_placeholder::placeholder {
+            color: #FF0000;
+        }
+
+        /* This is the style of our error messages */
+        .error {
+            color: #FF0000;
+            display: block;
+            height: 20px;
+        }
+
+        /*input ends*/
+
+        /*select starts*/
+        select {
+            /* styling */
+            background-color: transparent;
+            border: none;
+            border-bottom: 3px solid var(--spectra);
+            width: 100%;
+            display: inline-block;
+            font: inherit;
+            font-size: 20px;
+            line-height: 20px;
+            padding: 12px;
+            margin: 30px 0;
+            outline: none;
+            color: var(--spectra);
+            cursor: pointer;
+            opacity: 0.85;
+            font-family: "Nunito", sans-serif;
+            /* reset */
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("../assets/svg/angle-down-solid.svg");
+            background-repeat: no-repeat;
+            background-position-x: right;
+            background-size: 25px 25px;
+        }
+
+        option {
+            color: var(--black);
+        }
+
+        /*select ends*/
+
+        /*submit_btn starts*/
+        .sendbtn {
+            text-align: right;
+
+            input[type=submit] {
+                padding: 10px;
+                border: 3px solid var(--spectra);
+                cursor: pointer;
+                background-color: transparent;
+                transition: 0.5s;
+                font-size: 25px;
+                border-radius: 50%;
+                height: 150px;
+                width: 150px;
+                text-transform: uppercase;
+                outline: none;
+                color: var(--spectra);
+                font-weight: bold;
+                font-family: "Nunito", sans-serif;
+                letter-spacing: 3px;
+                animation: btn_rotate 5s linear infinite;
+            }
+
+            input[type=submit]:hover {
+                background-color: var(--spectra);
+                color: var(--ecru-white);
+                font-weight: bold;
+            }
+
+            @keyframes btn_rotate {
+                from {
+                    transform: rotate(0deg);
+                }
+
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+        }
+
+        /*submit_btn ends*/
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+    .title {
+        padding: 0;
+
+        h1 {
+            font-size: 40px;
+        }
+    }
+
+    .section-survey {
+        margin: 50px 30px;
+        padding: 20px 10px;
+
+        .form-container {
+            .rating {
+                .rating-grid {
+                    .rating-container {
+                        margin: 50px 5px;
+                        font-size: 22px;
+
+                        .ratingmark {
+                            height: 65px;
+                            width: 45px;
+                            padding: 17px 7px 7px 7px;
+                        }
+                    }
+                }
+            }
+
+            .usage label,
+            .goals label,
+            .improvements label {
+                font-size: 22px;
+            }
+
+            .input-name label,
+            .input-email label,
+            .input-country label,
+            .input-status label,
+            .input-comment label,
+            p {
+                font-size: 30px;
+                font-weight: bold;
+                cursor: default;
+            }
+
+
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .title {
+        padding: 0;
+
+        h1 {
+            font-size: 50px;
+        }
+    }
+
+    .section-survey {
+        margin: 50px 50px;
+        padding: 20px 50px;
+
+        .form-container {
+            .rating {
+                .rating-grid {
+                    .rating-container {
+                        margin: 50px 18px;
+                        font-size: 22px;
+
+                        .ratingmark {
+                            height: 70px;
+                            width: 50px;
+                            padding: 20px 10px 10px 10px;
+                        }
+                    }
+                }
+            }
+
+            .usage label,
+            .goals label,
+            .improvements label {
+                font-size: 22px;
+            }
+
+            .input-name label,
+            .input-email label,
+            .input-country label,
+            .input-status label,
+            .input-comments label,
+            p {
+                font-size: 30px;
+                font-weight: bold;
+                cursor: default;
+            }
+
+
+        }
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .title {
+        padding: 0;
+
+        h1 {
+            font-size: 70px;
+            font-weight: bolder;
+        }
+    }
+
+    .section-survey {
+        margin: 50px 100px;
+        padding: 20px 100px;
+
+        .form-container {
+            .rating {
+                .rating-grid {
+                    margin-top: -30px;
+                    margin-bottom: 90px;
+
+                    .rating-container {
+                        margin: 50px 18px;
+                        font-size: 22px;
+
+                        .ratingmark {
+                            height: 70px;
+                            width: 50px;
+                            padding: 20px 10px 10px 10px;
+                        }
+                    }
+                }
+            }
+
+            .usage label,
+            .goals label,
+            .improvements label {
+                font-size: 22px;
+
+            }
+
+            .input-name label,
+            .input-email label,
+            .input-country label,
+            .input-status label,
+            .input-comments label,
+            p {
+                font-size: 30px;
+                font-weight: bold;
+                cursor: default;
+            }
+
+
+        }
+    }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1439px) {
+    .title {
+        padding: 0;
+
+        h1 {
+            font-size: 70px;
+            font-weight: bolder;
+        }
+    }
+
+    .section-survey {
+        margin: 50px 200px;
+        padding: 20px 100px;
+
+        .form-container {
+            .rating {
+                .rating-grid {
+                    margin-top: -30px;
+                    margin-bottom: 90px;
+
+                    .rating-container {
+                        margin: 50px 18px;
+                        font-size: 22px;
+
+                        .ratingmark {
+                            height: 70px;
+                            width: 50px;
+                            padding: 20px 10px 10px 10px;
+                        }
+                    }
+                }
+            }
+
+            .usage label,
+            .goals label,
+            .improvements label {
+                font-size: 22px;
+            }
+
+            .input-name label,
+            .input-email label,
+            .input-country label,
+            .input-status label,
+            .input-comments label,
+            p {
+                font-size: 30px;
+                font-weight: bold;
+                cursor: default;
+            }
+
+
+        }
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .title {
+        padding: 0;
+
+        h1 {
+            font-size: 70px;
+            font-weight: bolder;
+        }
+    }
+
+    .section-survey {
+        margin: 50px 300px;
+        padding: 20px 50px;
+
+        .form-container {
+            .rating {
+                .rating-grid {
+                    margin-top: -30px;
+                    margin-bottom: 90px;
+
+                    .rating-container {
+                        margin: 50px 18px;
+                        font-size: 22px;
+
+                        .ratingmark {
+                            height: 70px;
+                            width: 50px;
+                            padding: 20px 10px 10px 10px;
+                        }
+                    }
+                }
+            }
+
+            .usage label,
+            .goals label,
+            .improvements label {
+                font-size: 22px;
+            }
+
+            .input-name label,
+            .input-email label,
+            .input-country label,
+            .input-status label,
+            .input-comments label,
+            p {
+                font-size: 30px;
+                font-weight: bold;
+                cursor: default;
+            }
+
+
+        }
+    }
+}
